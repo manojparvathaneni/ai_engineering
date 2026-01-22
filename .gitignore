@@ -1,0 +1,40 @@
+# Virtual environments (uv creates .venv)
+.venv/
+venv/
+.python-version
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# uv
+uv.lock
+
+# Environment
+.env
+.env.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large files
+*.h5
+*.pt
+*.pth
+*.bin
+*.safetensors
+
+# Node
+node_modules/
+
+# Test
+.pytest_cache/
+.coverage
+htmlcov/

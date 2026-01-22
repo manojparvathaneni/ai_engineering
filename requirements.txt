@@ -1,0 +1,17 @@
+# REFERENCE ONLY - We use uv, not pip install
+# 
+# For scripts: Dependencies are inline (PEP 723)
+# For projects: Dependencies are in pyproject.toml
+#
+# Common packages used across the course:
+# - numpy, pandas (data processing)
+# - tiktoken (tokenization)
+# - anthropic, openai (LLM clients)
+# - transformers, torch (local models)
+# - fastapi, uvicorn (backends)
+# - chromadb (vector store)
+# - langchain (RAG/agents)
+#
+# Install uv: curl -LsSf https://astral.sh/uv/install.sh | sh
+# Run scripts: uv run script.py
+# Run projects: cd project/ && uv sync && uv run python main.py

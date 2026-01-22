@@ -1,0 +1,5 @@
+# Cursor Rules for AI Engineering Repository
+# Read CLAUDE.md for full context
+# Python 3.10+, type hints, pathlib for paths
+# Each project has own venv
+# Teaching materials in teaching-materials/

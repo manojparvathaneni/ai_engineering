@@ -1,0 +1,58 @@
+flowchart TB
+    subgraph Human["👤 Human World (What We See)"]
+        I1[🖼️ Image]
+        I2[🎵 Audio]
+        I3[🎬 Video]
+        I4["📝 Text<br/><i>'Hello world'</i>"]
+    end
+
+    subgraph Encoders["🔄 Encoders (Translators)"]
+        E1[Vision Encoder]
+        E2[Audio Encoder]
+        E3[Video Encoder]
+        E4[Tokenizer]
+    end
+
+    subgraph Numbers["🔢 Number World (What the LLM Sees)"]
+        direction TB
+        TK["Tokens<br/><i>[15496, 995]</i>"]
+        EMB["Embeddings<br/><i>Dense vectors per token</i><br/>[0.021, -0.83, 0.12, ...]"]
+        LLM["🧠 LLM<br/><i>Processes vectors<br/>Predicts next token</i>"]
+    end
+
+    subgraph Decoders["🔄 Decoders (Translators)"]
+        D1[Image Decoder]
+        D2[Audio Decoder]
+        D3[Video Decoder]
+        D4[Detokenizer]
+    end
+
+    subgraph Output["👤 Human World (What We Receive)"]
+        O1[🖼️ Image]
+        O2[🎵 Audio]
+        O3[🎬 Video]
+        O4["📝 Text<br/><i>'Hi there!'</i>"]
+    end
+
+    I1 --> E1
+    I2 --> E2
+    I3 --> E3
+    I4 --> E4
+
+    E1 --> EMB
+    E2 --> EMB
+    E3 --> EMB
+    E4 --> TK
+    TK --> EMB
+
+    EMB --> LLM
+
+    LLM --> D1
+    LLM --> D2
+    LLM --> D3
+    LLM --> D4
+
+    D1 --> O1
+    D2 --> O2
+    D3 --> O3
+    D4 --> O4
