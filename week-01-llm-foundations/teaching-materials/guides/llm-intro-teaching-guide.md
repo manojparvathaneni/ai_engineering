@@ -12,7 +12,63 @@ This is the most important mental model for understanding how LLMs work. Everyth
 
 ## Architecture Diagram
 
-See: `llm-intro-architecture.mermaid`
+```mermaid
+flowchart LR
+    subgraph Inputs
+        I1[🖼️ Image]
+        I2[🎵 Audio]
+        I3[🎬 Video]
+        I4[📝 Text]
+    end
+
+    subgraph Encoders
+        E1[Vision Encoder]
+        E2[Audio Encoder]
+        E3[Video Encoder]
+        E4[Tokenizer]
+    end
+
+    subgraph Core
+        T[Tokens / Embeddings]
+        LLM[🧠 LLM]
+    end
+
+    subgraph Decoders
+        D1[Image Decoder]
+        D2[Audio Decoder]
+        D3[Video Decoder]
+        D4[Detokenizer]
+    end
+
+    subgraph Outputs
+        O1[🖼️ Image]
+        O2[🎵 Audio]
+        O3[🎬 Video]
+        O4[📝 Text]
+    end
+
+    I1 --> E1
+    I2 --> E2
+    I3 --> E3
+    I4 --> E4
+
+    E1 --> T
+    E2 --> T
+    E3 --> T
+    E4 --> T
+
+    T --> LLM
+
+    LLM --> D1
+    LLM --> D2
+    LLM --> D3
+    LLM --> D4
+
+    D1 --> O1
+    D2 --> O2
+    D3 --> O3
+    D4 --> O4
+```
 
 The diagram shows two worlds:
 - **Human World**: What we see (text, images, audio, video)
@@ -131,3 +187,4 @@ Understanding that LLMs only see numbers explains many behaviors:
 ---
 
 *Last updated: Week 1 - LLM Foundations*
+
